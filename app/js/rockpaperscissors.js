@@ -20,27 +20,26 @@ function randomPlay() {
 ////////////////////////////////////////////////
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
+var move;
+var playerMove;
+var computerMove;
 
 function getPlayerMove(move) {
-    if (move === true) {
-	}
-	else {
-	move  = getInput ();
-	}
-    return move;
+    var playerMove = move || getInput();
+    console.log("Player chose " + playerMove);
+    return playerMove;
 }
 
 function getComputerMove(move) {
-    if (move === true) {
-	}
-	else {
-	move = randomPlay();
-	}
-    return move;
+    var computerMove = move || randomPlay();
+    console.log("Computer chose " + computerMove);
+    return computerMove;
 }
 
 function getWinner(playerMove,computerMove) {
     var winner;
+    var playerMove = getPlayerMove();
+    var computerMove = getComputerMove();
    if ((playerMove === 'rock' && computerMove === 'paper')
          || (playerMove === 'paper' && computerMove === 'scissors')
          || (playerMove === 'scissors' && computerMove === 'rock')) {
@@ -55,9 +54,10 @@ function getWinner(playerMove,computerMove) {
          winner = 'tie';
      }
  
-     console.log("You chose " + playerMove + " and your opponent chose " + computerMove + " so clearly the winner is ");
+     console.log("The winner is " + winner);
 	return winner;
 }
+getWinner();
 
 function playToFive() {
     console.log("Let's play Rock, Paper, Scissors");
